@@ -1,0 +1,66 @@
+name: Testes
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    name: Python 3.10
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v7
+
+      - name: Configurar o Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.10"
+
+      - name: Executar os testes
+        run: python -m unittest discover -s tests/python -p "test_*.py" -v
+
+  java:
+    name: Java 17
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v7
+
+      - name: Configurar o Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Compilar a aplicação e os testes
+        run: |
+          mkdir -p build/java
+          javac -encoding UTF-8 -d build/java Main.java tests/java/MonteCarloTests.java
+
+      - name: Executar os testes
+        run: java -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8 -cp build/java MonteCarloTests
+
+  dotnet:
+    name: .NET 10
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v7
+
+      - name: Configurar o .NET
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Executar os testes
+        run: dotnet run --project Monte.Tests/Monte.Tests.csproj --configuration Release
