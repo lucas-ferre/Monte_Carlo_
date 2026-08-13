@@ -22,9 +22,9 @@ $$\hat{\pi} = 4\hat{p}$$
 
 Como cada ponto representa um ensaio de Bernoulli, a variância do estimador pode ser aproximada substituindo a probabilidade desconhecida por $\hat{p}$:
 
-$$\widehat{\operatorname{Var}}(\hat{\pi}) = \frac{16\hat{p}(1-\hat{p})}{n}$$
+$$\widehat{\mathrm{Var}}(\hat{\pi}) = \frac{16\hat{p}(1-\hat{p})}{n}$$
 
-A raiz quadrada dessa variância estimada é o erro padrão. Com uma aproximação normal, o intervalo de confiança de 95% é calculado por $\hat{\pi} \pm 1{,}96\,\operatorname{SE}(\hat{\pi})$. A variância não deve ser interpretada como o erro absoluto da estimativa.
+A raiz quadrada dessa variância estimada é o erro padrão. Com uma aproximação normal, o intervalo de confiança de 95% é calculado por $\hat{\pi} \pm 1{,}96\,\mathrm{SE}(\hat{\pi})$. A variância não deve ser interpretada como o erro absoluto da estimativa.
 
 ## Organização conceitual
 

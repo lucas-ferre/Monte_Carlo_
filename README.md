@@ -214,7 +214,7 @@ Além da estimativa de π, a simulação apresenta medidas da incerteza amostral
 
 A variável que indica se um ponto caiu dentro do círculo segue uma distribuição de Bernoulli. Substituindo a probabilidade desconhecida por $\hat{p}$, a variância estimada do estimador de π é:
 
-$$\widehat{\operatorname{Var}}(\hat{\pi}) = \frac{16\hat{p}(1-\hat{p})}{n}$$
+$$\widehat{\mathrm{Var}}(\hat{\pi}) = \frac{16\hat{p}(1-\hat{p})}{n}$$
 
 Esse valor descreve a dispersão esperada do estimador entre repetições do experimento. Ele não é o erro absoluto entre a estimativa obtida e o valor verdadeiro de π.
 
@@ -222,13 +222,13 @@ Esse valor descreve a dispersão esperada do estimador entre repetições do exp
 
 O erro padrão está na mesma unidade da estimativa de π e corresponde à raiz quadrada da variância estimada:
 
-$$\operatorname{SE}(\hat{\pi}) = \sqrt{\widehat{\operatorname{Var}}(\hat{\pi})}$$
+$$\mathrm{SE}(\hat{\pi}) = \sqrt{\widehat{\mathrm{Var}}(\hat{\pi})}$$
 
 ### Intervalo de confiança de 95%
 
 Usando a aproximação normal, o intervalo é calculado por:
 
-$$\hat{\pi} \pm 1{,}96 \times \operatorname{SE}(\hat{\pi})$$
+$$\hat{\pi} \pm 1{,}96 \times \mathrm{SE}(\hat{\pi})$$
 
 O intervalo é uma aproximação estatística. Em uma sequência de experimentos conduzidos da mesma forma, cerca de 95% dos intervalos assim construídos devem conter o valor verdadeiro. Ele não garante que toda execução individual produza uma boa aproximação.
 
@@ -243,5 +243,4 @@ Python, Java e C# utilizam geradores pseudoaleatórios e algoritmos de inicializ
 O tempo exibido serve como referência local para uma execução, não como um benchmark rigoroso entre linguagens. A comparação é influenciada por hardware, sistema operacional, versão do runtime, compilação JIT, aquecimento da máquina virtual, modo de compilação e outras cargas em execução.
 
 Para uma avaliação mais justa, use o mesmo computador e o mesmo tamanho de amostra, execute cada versão várias vezes, descarte aquecimentos quando aplicável e compare medidas agregadas. Em C#, prefira uma compilação `Release` ao realizar medições (`dotnet run -c Release --project ./Monte/Monte.csproj -- ...`).
-
 
